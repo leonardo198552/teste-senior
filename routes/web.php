@@ -13,6 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use app\produto;
+use Illuminate\Http\Request;
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::post('/cadastrar-produto', function (Request $request) {
+    Produto::create([
+        'nome' => $request->nome,
+        'valor' => $request->valor,
+        'estoque' => $request->estoque
+    ]);
+
+    echo "Produto criado com sucesso!";
 });
