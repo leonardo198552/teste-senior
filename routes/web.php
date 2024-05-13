@@ -20,6 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::post('/cadastrar-produto', function (Request $request) {
     Produto::create([
         'nome' => $request->nome,
